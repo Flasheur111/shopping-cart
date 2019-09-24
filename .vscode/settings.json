@@ -1,0 +1,25 @@
+{
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.minimap.enabled": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": true,
+    "source.fixAll": true
+  },
+  "files.trimTrailingWhitespace": true,
+  // HTML-Hint
+  "htmlhint.enable": true,
+  "htmlhint.options": {
+    "attr-lowercase": false
+  },
+  // Search
+  "search.exclude": {
+    "coverage": true,
+    "dist": true,
+    "documentation": true
+  }
+}

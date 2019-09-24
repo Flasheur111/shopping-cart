@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  &.danger {
+    background-color: red;
+    color: white;
+  }
+
+  &.primary {
+    background-color: #F9AA33;
+    color: black;
+  }
+
+  &.secondary {
+    background-color: inherit;
+    color: black;
+  }
+
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1px solid #cecece;
+
+  &:disabled {
+    opacity: 0.2;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    height: 39px;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  td.center {
+    text-align: center;
+  }
+}
+
+[card] {
+  padding: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
