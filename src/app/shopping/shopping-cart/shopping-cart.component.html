@@ -1,1 +1,48 @@
-<p>shopping-cart works!</p>
+<div card>
+  <h2>{{ 'shopping.cart.titles.cart' | translate }}</h2>
+  <table>
+    <tr>
+      <th>{{ 'shopping.cart.titles.image' | translate }}</th>
+      <th>
+        <ng-container *ngTemplateOutlet="sortingButtons; context: { $implicit: 'name' }"></ng-container>
+      </th>
+      <th>{{ 'shopping.cart.titles.quantity' | translate }}</th>
+      <th>
+        <ng-container *ngTemplateOutlet="sortingButtons; context: { $implicit: 'price' }"></ng-container>
+      </th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let cartProduct of filteredProducts">
+      <td class="center"><img src="{{ cartProduct.product.image }}" height="80px" /></td>
+      <td>{{ cartProduct.product.name }}</td>
+      <td>
+        {{ cartProduct.quantity }}
+        <div class="quantity-update">
+          <button class="secondary"
+                  (click)="productQuantityIncrease.emit({ productId: cartProduct.product.id })">+</button>
+          <button class="secondary"
+                  [disabled]="cartProduct.quantity <= 1"
+                  (click)="productQuantityDecrease.emit({ productId: cartProduct.product.id })">-</button>
+        </div>
+      </td>
+      <td>{{ cartProduct.product.price | currency }}</td>
+      <td class="center"><button class="danger"
+                (click)="productDelete.emit({ productId: cartProduct.product.id })">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <div class="total">
+    <b>{{ 'shopping.cart.messages.total' | translate }}: {{ cartTotal | currency }}</b>
+  </div>
+</div>
+
+<ng-template #sortingButtons
+             let-column>
+  <a href="#"
+     (click)="updateColumnSorting(column)">{{ 'shopping.cart.titles.' + column | translate }}
+    <ng-container *ngIf="sortedColumn === column">
+      <ng-container *ngIf="sortOrder === 'asc'">▲</ng-container>
+      <ng-container *ngIf="sortOrder === 'desc'">▼</ng-container>
+    </ng-container>
+  </a>
+</ng-template>

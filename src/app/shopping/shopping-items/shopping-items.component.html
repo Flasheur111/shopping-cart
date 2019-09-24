@@ -1,1 +1,31 @@
-<p>shopping-items works!</p>
+<div card>
+  <form [formGroup]="selectionForm">
+    <h2>{{ 'shopping.items.titles.add' | translate }}</h2>
+    <div class="control-container">
+      <label for="productId">{{ 'shopping.items.labels.name' | translate }}:</label>
+      <select formControlName="productId" id="productId">
+        <option *ngFor="let product of products" [value]="product.id">
+          {{ product.name }}
+        </option>
+      </select>
+    </div>
+    <ng-container *ngIf="productSelected">
+      <div class="control-container">
+        <label for="quantity">{{ 'shopping.items.labels.quantity' | translate }}:</label>
+        <input formControlName="quantity"
+               type="number" />
+      </div>
+      <div class="control-container">
+        <label for="price">{{ 'shopping.items.labels.price' | translate }}:</label>
+        <span>{{ productSelected.price | currency }}</span>
+      </div>
+    </ng-container>
+    <div class="control-container responsive">
+      <button class="primary"
+              [disabled]="selectionForm.invalid"
+              (click)="addProduct(productSelected, quantitySelected)">
+        {{ 'shopping.items.actions.add' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

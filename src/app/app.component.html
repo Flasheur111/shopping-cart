@@ -1,6 +1,12 @@
 <div>
-  <app-shopping-items>
+  <app-shopping-items [products]="catalogService.products$ | async"
+                      [productsMap]="catalogService.productsMap$ | async"
+                      (productAdd)="addProduct($event)">
   </app-shopping-items>
-  <app-shopping-cart>
+  <app-shopping-cart [cartProducts]="shoppingService.cart$ | async"
+                     [cartTotal]="shoppingService.cartTotal"
+                     (productQuantityDecrease)="decreaseProductQuantity($event)"
+                     (productDelete)="deleteProduct($event)"
+                     (productQuantityIncrease)="increaseProductQuantity($event)">
   </app-shopping-cart>
 </div>

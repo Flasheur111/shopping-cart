@@ -1,0 +1,40 @@
+:host {
+  label {
+    font-weight: 600;
+  }
+
+  input {
+    &:focus {
+      outline: none;
+    }
+
+    &.ng-invalid {
+      border-color: red;
+    }
+  }
+
+  div.control-container {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    label {
+      flex: 1;
+    }
+
+    input,
+    select,
+    option,
+    span,
+    div {
+      flex: 4;
+    }
+
+    &.responsive > button {
+      @media all and (max-width: 736px) {
+        flex: 1;
+      }
+    }
+  }
+}
