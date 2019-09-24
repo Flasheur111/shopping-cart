@@ -1,1 +1,29 @@
-{}
+{
+  "shopping": {
+    "cart": {
+      "titles": {
+        "cart": "Your Shopping Cart",
+        "image": "Preview",
+        "name": "Name",
+        "quantity": "Quantity",
+        "price": "Price"
+      },
+      "messages": {
+        "total": "Total"
+      }
+    },
+    "items": {
+      "actions": {
+        "add": "Add to cart"
+      },
+      "titles": {
+        "add": "Add"
+      },
+      "labels": {
+        "name": "Name",
+        "price": "Price",
+        "quantity": "Quantity"
+      }
+    }
+  }
+}
